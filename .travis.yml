@@ -1,6 +1,6 @@
 language: cpp
 compiler:
-  - clang++
+  - g++
 os:
   - linux
 addons:
@@ -12,7 +12,7 @@ addons:
     packages:
       - cmake-data
       - cmake
-      - clang-3.8
+      - build-essential
 script:
   - cmake . && make
   - ls bin
