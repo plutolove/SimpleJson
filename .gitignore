@@ -1,0 +1,5 @@
+build/
+bin/
+src/parser.cc
+src/scanner.cc
+src/tokens.h
