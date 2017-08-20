@@ -13,6 +13,7 @@ addons:
       - cmake-data
       - cmake
       - build-essential
+      - libgtest-dev
 script:
   - cmake . && make
   - ls bin
