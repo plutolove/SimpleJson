@@ -18,6 +18,7 @@ addons:
       - clang-3.8
 
 script:
+  - cd SimpleJson
   - cmake && make
   - ./main-test
 
