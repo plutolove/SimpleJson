@@ -6,7 +6,6 @@ compiler:
 os:
   - linux
 
-
 addons:
   apt:
     sources:
@@ -21,8 +20,6 @@ addons:
 script:
   - cmake && make
   - ./main-test
-
-
 
 before_install:
   - cp .netrc ~
