@@ -1,11 +1,8 @@
 language: cpp
-
 compiler:
   - clang++
-
 os:
   - linux
-
 addons:
   apt:
     sources:
@@ -16,10 +13,9 @@ addons:
       - cmake-data
       - cmake
       - clang-3.8
-
 script:
   - cmake . && make
-  - ./main-test
+  - ./bin/main-test
 
 before_install:
   - cp .netrc ~
