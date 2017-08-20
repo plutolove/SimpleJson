@@ -24,14 +24,11 @@ null                                    { return NULL_T; }
 
 %%
 
-/** Sets the input string to the lexer */
-void load_string(const char* str)
-{
+
+void load_string(const char* str) {
     yy_switch_to_buffer(yy_scan_string(str));
 }
 
-/** Sets the input file to the lexer */
-void load_file(FILE* file)
-{
+void load_file(FILE* file) {
     yyrestart(file);
 }

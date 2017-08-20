@@ -21,18 +21,17 @@
     bool null_p;
     char* string_v;
 
-    // Pointers to more complex classes
     meng::Json::object* object_p;
     meng::Json::array* array_p;
     meng::Json* value_p;
 }
-/** Define types for union values */
+
 %type<string_v> DOUBLE_QUOTED_STRING SINGLE_QUOTED_STRING string
 %type<int_v> NUMBER_I
 %type<float_v> NUMBER_F
 %type<bool_v> BOOLEAN
 
-/** Declare tokens */
+
 %token COMMA COLON
 %token SQUARE_BRACKET_L SQUARE_BRACKET_R
 %token CURLY_BRACKET_L CURLY_BRACKET_R
@@ -45,13 +44,13 @@
 %type <value_p> value
 %start json
 %%
-// Entry point (every meng::meng::Json file represents a value)
+
 json: value { parsd = $1; } ;
-// Object rule
+
 object: CURLY_BRACKET_L assignment_list CURLY_BRACKET_R { $$ = $2; } ;
-// Array rule
+
 array : SQUARE_BRACKET_L list SQUARE_BRACKET_R { $$ = $2; } ;
-// Values rule
+
 value : NUMBER_I { $$ = new meng::Json($1); }
     | NUMBER_F { $$ = new meng::Json($1); }
     | BOOLEAN { $$ = new meng::Json($1); }
@@ -60,9 +59,8 @@ value : NUMBER_I { $$ = new meng::Json($1); }
     | object { $$ = new meng::Json(std::move(*$1)); delete $1; }
     | array { $$ = new meng::Json(std::move(*$1)); delete $1; }
     ;
-// String rule
+
 string : DOUBLE_QUOTED_STRING {
-        // Trim string
         std::string s($1);
         s = s.substr(1, s.length()-2);
         char* t = new char[s.length()+1];
@@ -70,14 +68,13 @@ string : DOUBLE_QUOTED_STRING {
         $$ = t;
     }
     | SINGLE_QUOTED_STRING {
-        // Trim string
         std::string s($1);
         s = s.substr(1, s.length()-2);
         char* t = new char[s.length()+1];
         strcpy(t, s.c_str());
         $$ = t;
     };
-// Assignments rule
+
 assignment_list: /* empty */ { $$ = new meng::Json::object(); }
     | string COLON value {
         $$ = new meng::Json::object();
@@ -92,8 +89,8 @@ assignment_list: /* empty */ { $$ = new meng::Json::object(); }
     }
     ;
 
-// List rule
-list: /* empty */ { $$ = new meng::Json::array(); }
+
+list: { $$ = new meng::Json::array(); }
     | value {
         $$ = new meng::Json::array();
         $$->push_back(std::move(*$1));
