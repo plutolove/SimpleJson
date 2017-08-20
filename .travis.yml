@@ -16,8 +16,7 @@ addons:
       - libgtest-dev
 script:
   - cmake . && make
-  - ls bin
-  - bin/main-test
+  - bin/main
 
 before_install:
   - cp .netrc ~
