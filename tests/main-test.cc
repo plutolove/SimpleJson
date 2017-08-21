@@ -8,7 +8,7 @@ TEST(Parser, File) {
     ASSERT_EQ(tmp["editor.fontFamily"].string_value(), "Monaco");
     ASSERT_EQ(tmp["code-runner.executorMap"]["java"].string_value(), "cd $dir && javac $fileName && java $fileNameWithoutExt");
     ASSERT_EQ(tmp["python.linting.pylintArgs"][0].string_value(), "-d c0103, c0111");
-    //ASSERT_EQ(tmp["editor.fontSize"].int_value(), 20);
+    ASSERT_EQ(tmp["editor.fontSize"].int_value(), 20);
 }
 
 TEST(ToJson, object) {
