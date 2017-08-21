@@ -4,11 +4,11 @@
 using namespace std;
 using meng::Json;
 int main() {
-	string fname = "../tests/calc.json";
+	string fname = "../tests/test.json";
 	meng::Json tmp = parse_file(fname.c_str());
-	cout<<tmp["type"].string_value()<<endl;
-	cout<<tmp["postprocessors"][0]["type"].string_value()<<endl;
-	cout<<tmp["descendants"][0]["type"].string_value()<<endl;
+	cout<<tmp["editor.fontFamily"].string_value()<<endl;
+	cout<<tmp["code-runner.executorMap"]["java"].string_value()<<endl;
+	cout<<tmp["python.linting.pylintArgs"][0].string_value()<<endl;
 
 	Json my_json = Json::object {
 		{ "key1", "value1" },
