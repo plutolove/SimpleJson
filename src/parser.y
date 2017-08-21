@@ -14,7 +14,6 @@
 %code requires { #include "json.h" }
 %union
 {
-    // "Pure" types
     int int_v;
     float float_v;
     bool bool_v;
