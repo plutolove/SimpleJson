@@ -112,13 +112,13 @@ meng::Json parse_file(const char *filename) {
     int status = yyparse();
 
     if (status)
-      throw std::runtime_error("Error parsing file: JSON syntax.");
+      printf("Error parsing file: JSON syntax.\n");
     else
       v = *parsd;
 
     delete parsd;
   } else
-    throw std::runtime_error("Impossible to open file.");
+    printf("can not open file");
   return v;
 }
 
@@ -128,7 +128,7 @@ meng::Json parse_string(const std::string &s) {
   int status = yyparse();
 
   if (status) {
-    throw std::runtime_error("Error parsing file: JSON syntax.");
+    printf("parse error\n");
     delete parsd;
   } else {
     meng::Json v = *parsd;
