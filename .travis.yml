@@ -16,4 +16,5 @@ addons:
 script:
   - mkdir build && cd build
   - cmake .. && make
+  - ../bin/main
   - ../bin/main-test
