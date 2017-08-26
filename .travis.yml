@@ -1,0 +1,19 @@
+language: cpp
+compiler:
+  - clang
+os:
+  - linux
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.8
+    packages:
+      - cmake-data
+      - cmake
+      - clang-3.8
+script:
+  - mkdir build && cd build
+  - cmake .. && make
+  - ../bin/main-test
