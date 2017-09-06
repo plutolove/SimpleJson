@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/main-test.dir/tests/main-test.cc.o  -o ../bin/main-test third/googletest/libgtest.a third/googletest/libgtest_main.a libJson.a third/googletest/libgtest.a -pthread 
