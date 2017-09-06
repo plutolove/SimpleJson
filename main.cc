@@ -1,8 +1,10 @@
 #include <json.h>
 #include <iostream>
 #include <string>
+
 using namespace std;
 using meng::Json;
+
 int main() {
   string fname = "../tests/test.json";
   meng::Json tmp = parse_file(fname.c_str());
